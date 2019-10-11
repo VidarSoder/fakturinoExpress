@@ -4,7 +4,8 @@ var cors = require('cors')
 const path = require('path');
 const http = require('http');
 
-const port = 5000
+app.set( 'port', ( process.env.PORT || 5000 ));
+
 const server = http.Server(app);
 
 app.use(cors())
@@ -20,4 +21,4 @@ app.get('/', (req, res) => {
     res.send('main route')
 });
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(app.get( 'port' ), () => console.log(`Example app listening on port ${app.get( 'port' )}!`))
